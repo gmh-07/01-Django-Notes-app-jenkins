@@ -1,0 +1,223 @@
+User
+↓
+Enter Birth Details
+↓
+MongoDB User
+↓
+Prokerala API
+↓
+Raw Kundli JSON
+↓
+MongoDB
+↓
+Document Builder
+    ├── Career Document
+    ├── Finance Document
+    ├── Relationship Document
+    ├── Health Document
+    ├── Karma Document
+    ├── Past Life Document
+↓
+Chunking
+↓
+ChromaDB
+
+=========================
+
+User Question
+↓
+Query Classifier
+
+Career?
+↓
+Career Collection
+
+Finance?
+↓
+Finance Collection
+
+Relationship?
+↓
+Relationship Collection
+
+↓
+
+Relevant Chunks
+↓
+LLM
+↓
+Answer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Step 1: Query Understanding Agent
+
+User asks:
+
+What career suits me?
+
+Gemini #1 receives:
+
+User Question:
+What career suits me?
+
+Available Kundli Information:
+
+- Birth Details
+- Planet Positions
+- Yogas
+- Dasha
+- Sade Sati
+- Mangal Dosha
+- House Details
+- Nakshatra Details
+- Planet Strengths
+
+Tell me which astrology factors are required to answer this question.
+
+Gemini returns:
+
+{
+  "required_factors": [
+    "ascendant",
+    "lagna_lord",
+    "10th_house",
+    "10th_lord",
+    "saturn",
+    "mercury",
+    "jupiter",
+    "career_yogas",
+    "current_dasha"
+  ]
+}
+Step 2: Retrieval Query Generation
+
+Convert that into:
+
+ascendant lagna lord 10th house 10th lord saturn mercury jupiter career yoga current dasha
+
+Then search Chroma.
+
+Not:
+
+What career suits me?
+
+
+
+User Query
+      ↓
+Gemini Planner
+      ↓
+Astrology Requirements
+      ↓
+Chroma Search
+      ↓
+Retrieved Context
+      ↓
+Gemini Astrologer
+      ↓
+Answer
+
+
+
+
+
+
+
+
+
+It's:
+
+Architectural thinking
+
+For example, if they ask:
+
+Why did you use RAG instead of sending the entire kundli to Gemini?
+
+and you answer:
+
+The raw kundli becomes very large.
+I wanted scalable retrieval where only relevant astrology
+knowledge is fetched based on the user's query.
+
+So I built:
+- Knowledge Extraction
+- Vector Storage
+- Semantic Retrieval
+- Query Planning
+- Context-Aware Generation
+
+This reduces token usage and improves relevance.
+
+That's a much stronger answer than discussing astrology itself.
+
+
+
+Another thing they'll like:
+
+You already evolved the architecture.
+
+Version 1:
+
+Raw Kundli
+↓
+Gemini
+
+Version 2:
+
+Raw Kundli
+↓
+Knowledge Base
+↓
+Chroma
+↓
+Gemini
+
+Version 3:
+
+Raw Kundli
+↓
+Knowledge Base
+↓
+Chroma
+↓
+Planner LLM
+↓
+Retriever
+↓
+Analysis LLM
+
+That shows engineering iteration.
+
+
+
+If I were interviewing you at an AI company, I'd be more impressed by:
+
+Why you introduced a planner layer
+
+than by whether Raja Yoga interpretation is 100% correct.
+
+Because the planner layer shows you understand:
+
+Query Understanding
+Intent Detection
+Retrieval Optimization
+Multi-step AI Pipelines
+
+which are core AI engineering concepts.
+
